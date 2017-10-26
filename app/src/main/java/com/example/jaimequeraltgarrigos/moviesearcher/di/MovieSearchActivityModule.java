@@ -1,7 +1,10 @@
 package com.example.jaimequeraltgarrigos.moviesearcher.di;
 
+import android.arch.lifecycle.ViewModelProvider;
+
 import com.example.jaimequeraltgarrigos.moviesearcher.interactor.MoviesInteractor;
 import com.example.jaimequeraltgarrigos.moviesearcher.io.api.MoviesServices;
+import com.example.jaimequeraltgarrigos.moviesearcher.viewModel.MovieSearcherVMFactory;
 
 import dagger.Module;
 import dagger.Provides;
@@ -17,4 +20,6 @@ class MovieSearchActivityModule {
     MoviesInteractor provideMainViewModel(Retrofit retrofit) {
         return new MoviesInteractor(retrofit.create(MoviesServices.class));
     }
+
+
 }

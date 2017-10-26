@@ -9,6 +9,8 @@ import com.example.jaimequeraltgarrigos.moviesearcher.io.api.RestApiManager;
 import com.example.jaimequeraltgarrigos.moviesearcher.model.MoviesResponse;
 import com.example.jaimequeraltgarrigos.moviesearcher.utils.MyConstant;
 
+import javax.inject.Inject;
+
 /**
  * Created by jaimequeraltgarrigos on 22/10/17.
  */
@@ -17,6 +19,7 @@ public class MovieSearcherViewModel extends ViewModel {
     LiveData<MoviesResponse> moviesList;
     MoviesInteractor interactor;
 
+    @Inject
     public MovieSearcherViewModel() {
         interactor = new MoviesInteractor(RestApiManager.getInstance().create(MoviesServices.class));
     }

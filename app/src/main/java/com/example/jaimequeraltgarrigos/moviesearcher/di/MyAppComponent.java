@@ -3,6 +3,7 @@ package com.example.jaimequeraltgarrigos.moviesearcher.di;
 import android.app.Application;
 
 import com.example.jaimequeraltgarrigos.moviesearcher.MovieSearcherApp;
+import com.example.jaimequeraltgarrigos.moviesearcher.view.activity.MovieSearcherActivity;
 
 import javax.inject.Singleton;
 
@@ -18,7 +19,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {AndroidInjectionModule.class, ApplicationModule.class, ActivityBuilder.class})
-interface MyAppComponent {
+public interface MyAppComponent {
 
     @Component.Builder
     interface Builder {
@@ -30,6 +31,7 @@ interface MyAppComponent {
 
     }
 
-    void inject(MovieSearcherApp app);
+    void inject(MovieSearcherActivity movieSearcherActivity);
+
 }
 

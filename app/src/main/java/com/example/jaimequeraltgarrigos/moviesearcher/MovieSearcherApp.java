@@ -1,33 +1,25 @@
 package com.example.jaimequeraltgarrigos.moviesearcher;
 
 
+import android.app.Application;
 
-import android.app.Activity;
-
-
-import javax.inject.Inject;
-
-import dagger.android.AndroidInjector;
-import dagger.android.DaggerApplication;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
+import com.example.jaimequeraltgarrigos.moviesearcher.di.DaggerMyAppComponent;
+import com.example.jaimequeraltgarrigos.moviesearcher.di.MyAppComponent;
 
 /**
  * Created by jaimequeraltgarrigos on 24/10/17.
  */
 
-public class MovieSearcherApp extends DaggerApplication implements HasActivityInjector{
+public class MovieSearcherApp extends Application {
 
-    @Inject
-    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
-
+    MyAppComponent mAppComponent;
     @Override
     public void onCreate() {
         super.onCreate();
+        mAppComponent = DaggerMyAppComponent.builder().application(this).build();
     }
 
-    @Override
-    protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return null;
+    public MyAppComponent getAppComponent() {
+        return mAppComponent;
     }
 }
