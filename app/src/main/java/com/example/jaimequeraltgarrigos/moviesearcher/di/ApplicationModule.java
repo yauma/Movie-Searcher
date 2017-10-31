@@ -5,7 +5,10 @@ import android.arch.lifecycle.ViewModelProvider;
 import android.content.Context;
 
 import com.example.jaimequeraltgarrigos.moviesearcher.MovieSearcherApp;
+import com.example.jaimequeraltgarrigos.moviesearcher.interactor.MoviesInteractor;
+import com.example.jaimequeraltgarrigos.moviesearcher.io.api.MoviesServices;
 import com.example.jaimequeraltgarrigos.moviesearcher.io.api.RestApiManager;
+import com.example.jaimequeraltgarrigos.moviesearcher.view.adapter.MovieAdapter;
 import com.example.jaimequeraltgarrigos.moviesearcher.viewModel.MovieSearcherVMFactory;
 import com.example.jaimequeraltgarrigos.moviesearcher.viewModel.MovieSearcherViewModel;
 
@@ -25,13 +28,14 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    Context provideContext(MovieSearcherApp application) {
-        return application;
+    MoviesServices provideMoviesServices() {
+        return RestApiManager.getInstance().create(MoviesServices.class);
     }
 
     @Provides
     @Singleton
-    Retrofit provideRetrofit() {
-        return RestApiManager.getInstance();
+    MoviesInteractor provideMoviesInteractor(MoviesServices moviesServices) {
+        return new MoviesInteractor(moviesServices);
     }
+
 }

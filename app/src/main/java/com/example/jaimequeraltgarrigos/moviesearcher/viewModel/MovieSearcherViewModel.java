@@ -17,11 +17,11 @@ import javax.inject.Inject;
 
 public class MovieSearcherViewModel extends ViewModel {
     LiveData<MoviesResponse> moviesList;
+    @Inject
     MoviesInteractor interactor;
 
     @Inject
     public MovieSearcherViewModel() {
-        interactor = new MoviesInteractor(RestApiManager.getInstance().create(MoviesServices.class));
     }
 
     public void init(String name, int page) {

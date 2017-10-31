@@ -6,8 +6,6 @@ import android.arch.lifecycle.MutableLiveData;
 import com.example.jaimequeraltgarrigos.moviesearcher.io.api.MoviesServices;
 import com.example.jaimequeraltgarrigos.moviesearcher.model.MoviesResponse;
 
-import retrofit.http.Query;
-import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -28,6 +26,8 @@ public class MoviesInteractor {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(moviesResponse -> {
                     data.setValue(moviesResponse);
+                }, (Throwable throwable) -> {
+
                 });
 
         return data;
