@@ -1,30 +1,27 @@
-<android.support.v7.widget.CardView
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    card_view:cardCornerRadius="5dp"
-    android:id="@+id/cardRowMovie">
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:id="@+id/card_view_movie" xmlns:android="http://schemas.android.com/apk/res/android"
+                                    android:layout_width="match_parent" android:layout_height="@dimen/card_view_height"
+                                    android:layout_marginBottom="1dp" android:layout_marginLeft="1dp"
+                                    android:layout_marginRight="1dp" android:layout_marginTop="1dp"
+                                    android:background="@android:color/background_dark">
 
-        <ImageView
-            android:id="@+id/imageViewMovie"
-            android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            card_view:layout_constraintBottom_toBottomOf="parent" card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toTopOf="parent" card_view:srcCompat="@mipmap/ic_launcher"/>
+    <ImageView
+        android:id="@+id/imageViewMovie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:scaleType="centerCrop"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient">
+
         <TextView
-            android:id="@+id/textViewMovie"
+            android:id="@+id/textViewTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            android:text="TextView" card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintEnd_toEndOf="parent"
-            card_view:layout_constraintStart_toEndOf="@+id/imageViewMovie" card_view:layout_constraintTop_toTopOf="parent"/>
-    </android.support.constraint.ConstraintLayout>
+            android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_alignParentStart="true"
+            android:layout_marginBottom="12dp" android:layout_marginStart="15dp" android:text="TextView"
+            android:textColor="@color/cardview_light_background"/>
+    </RelativeLayout>
+
 </android.support.v7.widget.CardView>

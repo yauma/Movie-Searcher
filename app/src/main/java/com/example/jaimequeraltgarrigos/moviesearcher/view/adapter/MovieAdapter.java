@@ -46,8 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         Movie movie = mDataSet.get(position);
         try {
             holder.textViewMovie.setText(movie.getOriginalTitle());
-            Picasso.with(context).load(MyConstant.IMAGE_BASE_URL + movie.getBackdropPath()).resize(50, 50)
-                   .centerCrop().into(holder.imageViewMovie);
+            Picasso.with(context).load(MyConstant.IMAGE_BASE_URL + movie.getBackdropPath()).into(holder.imageViewMovie);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,15 +83,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     }
 
     public static class MovieViewHolder extends ViewHolder {
-        CardView cardView;
         ImageView imageViewMovie;
         TextView textViewMovie;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.cardRowMovie);
             imageViewMovie = itemView.findViewById(R.id.imageViewMovie);
-            textViewMovie = itemView.findViewById(R.id.textViewMovie);
+            textViewMovie = itemView.findViewById(R.id.textViewTitle);
         }
 
     }
